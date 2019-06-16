@@ -2671,7 +2671,7 @@ TradeFunc_ParseAlternativeCurrencySearch(name, payload) {
 
 ; Calculate average and median price of X listings
 TradeFunc_GetMeanMedianPrice(html, payload, ByRef errorMsg = "") {
-	itemCount := 1
+	itemCount := 0
 	prices := []
 	average := 0
 	Title := ""
@@ -2724,7 +2724,7 @@ TradeFunc_GetMeanMedianPrice(html, payload, ByRef errorMsg = "") {
 
 			StringReplace, FloatNumber, chaosEquivalent, ., `,, 1
 			average += chaosEquivalent
-			prices[itemCount-1] := chaosEquivalent
+			prices[itemCount] := chaosEquivalent
 		}
 	}
 
